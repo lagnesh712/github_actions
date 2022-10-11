@@ -33,5 +33,5 @@ jobs:
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/flaskgit:buildcache,mode=max
       -
         name: Run
-        run: docker run flaskgit
+        run: docker run lagnesh712/flaskgit
          
