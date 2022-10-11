@@ -35,6 +35,9 @@ jobs:
         name: Run
         run: docker run -d lagnesh712/flaskgit
       - 
-        name: Close server
-        run: curl http://localhost:5000
+        name: echo command 
+        run: echo "Test comment"
+      - 
+        name: curl 
+        run: curl http://127.0.0.1:5000
          
