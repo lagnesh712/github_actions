@@ -33,7 +33,7 @@ jobs:
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/flaskgit:buildcache,mode=max
       -
         name: Run
-        run: docker run -d lagnesh712/flaskgit
+        run: docker run -d -p 5000:5000 lagnesh712/flaskgit 
       - 
         name: echo command 
         run: echo "Test comment"
