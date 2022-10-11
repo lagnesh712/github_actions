@@ -34,4 +34,7 @@ jobs:
       -
         name: Run
         run: docker run lagnesh712/flaskgit
+      - 
+        name: Close server
+        run: curl http://172.17.0.3:5000
          
