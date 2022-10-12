@@ -36,7 +36,9 @@ jobs:
       - name: docker ps
         run: docker ps 
       - name: docker logs
-        run: docker logs mycontainer
+        run: |
+         - docker logs mycontainer
+         - sleep 120
   # curl:
   #   runs-on: ubuntu-latest
   #   steps:
