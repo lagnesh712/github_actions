@@ -38,8 +38,8 @@ jobs:
       - name: docker logs
         run: |
           docker logs mycontainer
-          sleep 120
+          sleep 30
           docker ps 
-      - name: curl
-        run: curl http://172.17.0.3:5000
+      - name: api testing
+        run: python3 api_test.py
 
