@@ -42,9 +42,12 @@ jobs:
           docker ps 
       - name: curl
         run: curl http://172.17.0.3:5000
-  # curl:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     -
-  #       name: curl
-  #       run: curl http://127.0.0.1:5000
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: hello world 
+        run: python helloworld.py
