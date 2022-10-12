@@ -39,6 +39,9 @@ jobs:
         run: |
           docker logs mycontainer
           sleep 120
+          docker ps 
+      - name: curl
+        run: curl http://172.17.0.3:5000
   # curl:
   #   runs-on: ubuntu-latest
   #   steps:
