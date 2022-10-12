@@ -40,6 +40,8 @@ jobs:
           docker logs mycontainer
           sleep 30
           docker ps 
+      - name: installing pytest
+        run: pip install pytest
       - name: api testing
         run: python3 api_test.py
 
