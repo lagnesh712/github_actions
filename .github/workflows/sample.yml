@@ -57,7 +57,7 @@ jobs:
       - name: docker build 
         run: docker build -t flaskappgit .
       - name: docker tag
-        run: docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
+        run: docker tag flaskappgit ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
       - name: echo command
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
       - name: echo command
