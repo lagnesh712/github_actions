@@ -14,6 +14,8 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: docker build 
         run: docker build -t flaskappgithub .
+      - name: docker tag
+        run: docker tag flaskappgit ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
       - name: docker push 
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
       # - name: echo command
