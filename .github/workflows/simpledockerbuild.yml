@@ -21,7 +21,7 @@ jobs:
       # - name: echo command
       #   run: echo "Test comment"
       - name: Run
-        run: docker run -d --name mycontainer lagnesh712/flaskappgithub
+        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub
       - name: docker ps
         run: docker ps 
       - name: docker logs
