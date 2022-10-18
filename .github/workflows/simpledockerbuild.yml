@@ -18,8 +18,8 @@ jobs:
         run: docker tag flaskappgithub ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
       - name: docker push 
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
-      # - name: echo command
-      #   run: echo "Test comment"
+      - name: echo command
+        run: echo "Test comment"
       - name: Run
         run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub
       - name: docker ps
