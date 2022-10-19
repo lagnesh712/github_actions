@@ -15,4 +15,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: echo command
-        run: echo "hello world"
+        run: eecho "hello world"
