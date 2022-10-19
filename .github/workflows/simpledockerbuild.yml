@@ -1,6 +1,12 @@
 name: ci-docker
 
-on: [push,pull_request]
+on: 
+  push:
+      branches:
+        - "merge_branch"
+  pull_request_review:
+      branches:
+        - "master"      
 jobs:
   build:
     runs-on: ubuntu-latest

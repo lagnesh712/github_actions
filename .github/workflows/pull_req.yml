@@ -2,6 +2,8 @@ name: pull_req
 
 on:
   pull_request:
+    types:
+      - "closed"
     branches:
       - "merge_branch"
 
