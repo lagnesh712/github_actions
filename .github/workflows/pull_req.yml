@@ -1,6 +1,7 @@
 name: pull_req
 
 on:
+  push:
   pull_request:
     types:
       - "opened"
@@ -17,4 +18,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: echo command
-        run: echo "hello world this is demo branch."
+        run: echo "hello world this is demo branch"
