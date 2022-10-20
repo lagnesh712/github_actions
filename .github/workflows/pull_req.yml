@@ -3,7 +3,7 @@ name: pull_req
 on:
   pull_request:
     types:
-      - "closed"
+      - "opened"
     branches:
       - "merge_branch"
 
