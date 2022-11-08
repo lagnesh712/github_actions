@@ -1,9 +1,7 @@
 name: pull_req
 
 on:
-  pull_request:
-    types:
-      - "opened"
+  push:
     branches:
       - "merge_branch"
 
