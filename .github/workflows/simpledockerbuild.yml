@@ -39,7 +39,7 @@ jobs:
       # - name: docker push 
         # run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
       - name: Run
-        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub
+        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub:${{steps.v1.git_hash}}
       - name: docker ps
         run: docker ps 
       - name: docker logs
