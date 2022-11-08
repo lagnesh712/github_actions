@@ -39,12 +39,12 @@ jobs:
          git_branch=$(echo ${GITHUB_REF#refs/heads/})
          echo $git_id
          echo $git_branch
+         docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub:$git_branch-$git_id
       # - name: docker tag
         # run: docker tag flaskappgithub ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub:${{steps.v1.git_hash}}
       # - name: docker push 
         # run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
-      - name: Run
-        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub:$git_branch-$git_id
+      
       - name: docker ps
         run: docker ps 
       - name: docker logs
