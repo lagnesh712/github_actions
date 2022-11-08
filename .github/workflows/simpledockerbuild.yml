@@ -25,10 +25,19 @@ jobs:
         run: echo "${{steps.v1.git_hash}}"
       - name: docker build 
         run: docker build -t flaskappgithub .
-      - name: docker tag
-        run: docker tag flaskappgithub ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub:${{steps.v1.git_hash}}
-      - name: docker push 
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
+          tags: ${{steps.v1.git_hash}}
+          registry: docker.io
+          dockerfile: dockerfile
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      # - name: docker tag
+        # run: docker tag flaskappgithub ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub:${{steps.v1.git_hash}}
+      # - name: docker push 
+        # run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
       - name: Run
         run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub
       - name: docker ps
