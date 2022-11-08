@@ -23,8 +23,7 @@ jobs:
         run: git_hash=$(git rev-parse --short "$GITHUB_SHA")
       - name: print commit id          
         run: echo "${{steps.v1.git_hash}}"
-      - name: docker build 
-        run: docker build -t flaskappgithub .
+      
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
@@ -34,12 +33,18 @@ jobs:
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Run    
+        run: |
+         git_id=$(git rev-parse --short "$GITHUB_SHA")
+         git_branch=$(echo ${GITHUB_REF#refs/heads/})
+         echo $git_id
+         echo $git_branch
       # - name: docker tag
         # run: docker tag flaskappgithub ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub:${{steps.v1.git_hash}}
       # - name: docker push 
         # run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgithub
       - name: Run
-        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub:${{steps.v1.git_hash}}
+        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgithub:$git_branch-$git_id
       - name: docker ps
         run: docker ps 
       - name: docker logs
